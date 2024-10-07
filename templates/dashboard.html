@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Stock Inventory Dashboard</h1>
+    <a href="{{ url_for('stock_in') }}">Add Stock</a> |
+    <a href="{{ url_for('stock_out') }}">Issue Stock</a> |
+    <a href="{{ url_for('reports') }}">View Reports</a>
+
+    <h2>Stock In</h2>
+    <table border="1">
+        <tr>
+            <th>Source</th>
+            <th>Item Name</th>
+            <th>Batch Number</th>
+            <th>Expiry Date</th>
+            <th>Quantity</th>
+            <th>Received Date</th>
+        </tr>
+        {% for stock in stocks_in %}
+        <tr>
+            <td>{{ stock.source }}</td>
+            <td>{{ stock.item_name }}</td>
+            <td>{{ stock.batch_number }}</td>
+            <td>{{ stock.expiry_date }}</td>
+            <td>{{ stock.quantity }}</td>
+            <td>{{ stock.received_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Stock Out</h2>
+    <table border="1">
+        <tr>
+            <th>Department</th>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Issued Date</th>
+        </tr>
+        {% for stock in stocks_out %}
+        <tr>
+            <td>{{ stock.department }}</td>
+            <td>{{ stock.item_name }}</td>
+            <td>{{ stock.quantity }}</td>
+            <td>{{ stock.issued_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

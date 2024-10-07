@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Stock</title>
+</head>
+<body>
+    <h1>Add Stock</h1>
+    <form method="POST" action="{{ url_for('stock_in') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            <label for="source">Source:</label>
+            {{ form.source(size=32) }}
+        </div>
+        <div>
+            <label for="item_name">Item Name:</label>
+            {{ form.item_name(size=32) }}
+        </div>
+        <div>
+            <label for="batch_number">Batch Number:</label>
+            {{ form.batch_number(size=32) }}
+        </div>
+        <div>
+            <label for="expiry_date">Expiry Date:</label>
+            {{ form.expiry_date() }}
+        </div>
+        <div>
+            <label for="quantity">Quantity:</label>
+            {{ form.quantity() }}
+        </div>
+        <div>
+            <label for="received_date">Received Date:</label>
+            {{ form.received_date() }}
+        </div>
+        <div>
+            <input type="submit" value="Add Stock">
+        </div>
+    </form>
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

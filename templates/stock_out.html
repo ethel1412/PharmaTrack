@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Stock</title>
+</head>
+<body>
+    <h1>Issue Stock to Department</h1>
+    <form method="POST" action="{{ url_for('stock_out') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            <label for="department">Department:</label>
+            {{ form.department(size=32) }}
+        </div>
+        <div>
+            <label for="item_name">Item Name:</label>
+            {{ form.item_name(size=32) }}
+        </div>
+        <div>
+            <label for="quantity">Quantity:</label>
+            {{ form.quantity() }}
+        </div>
+        <div>
+            <label for="issued_date">Issued Date:</label>
+            {{ form.issued_date() }}
+        </div>
+        <div>
+            <input type="submit" value="Issue Stock">
+        </div>
+    </form>
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
