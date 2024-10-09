@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from forms import StockInForm, StockOutForm
 from datetime import datetime
 
@@ -7,7 +8,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inventory.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initialize SQLAlchemy and Flask-Migrate
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)  # Add Flask-Migrate here
 
 # Models
 class StockIn(db.Model):
