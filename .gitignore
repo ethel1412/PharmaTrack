@@ -1,2 +1,5 @@
 ./venv
 helper.md
+./__pycache__
+./instance
+./migrations
