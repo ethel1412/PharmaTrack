@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Reports</title>
+    <style>
+        body {
+            background-color: #f2f3f5;
+        }
+        .navbar {
+            background-color: #4dc0b5; /* Light teal */
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin: 0 auto; /* Center the title */
+            text-align: center; /* Center text within the container */
+            width: 100%; /* Full width for centering */
+        }
+        h1 {
+            color: #4dc0b5; /* Light teal */
+            margin-top: 20px;
+            font-size: 2.5rem;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333; /* Darker for contrast */
+        }
+        .table {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden; /* Prevent rounded corners from being clipped */
+        }
+        .table thead {
+            background-color: #4dc0b5; /* Light teal for header */
+            color: white; /* White text for header */
+        }
+        .btn-secondary {
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Navbar for Title -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid justify-content-center">
+            <span class="navbar-brand">Inventory Summary</span>
+        </div>
+    </nav>
+
     <div class="container mt-4">
         <h1 class="text-center mb-4">Reports</h1>
 

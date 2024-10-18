@@ -2,75 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <title>Dashboard</title>
-    </head>
-    <body>
-        <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
-            <h1 class="text-center mb-5">Stock Inventory Dashboard</h1>
-    
-            <div class="d-grid gap-3 col-6 mx-auto">
-                <a href="{{ url_for('stock_in') }}" class="btn btn-primary btn-lg">Add Stock</a>
-                <a href="{{ url_for('stock_out') }}" class="btn btn-success btn-lg">Issue Stock</a>
-                <a href="{{ url_for('reports') }}" class="btn btn-info btn-lg">View Reports</a>
-            </div>
-        </div>
-    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    
-    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Stock Inventory Dashboard</title>
+    <style>
+        body {
+            background-color: #f2f3f5;
+        }
+        .navbar {
+            background-color: #4dc0b5; /* Light teal */
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin: 0 auto; /* Center the title */
+            text-align: center; /* Center text within the container */
+            width: 100%; /* Full width for centering */
+        }
+        .dashboard-title {
+            margin: 1rem 0;
+            text-align: center;
+            color: #4dc0b5; /* Light teal */
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .card-button {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .btn-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #4dc0b5; /* Light teal */
+        }
+    </style>
 </head>
 <body>
-    <h1>Stock Inventory Dashboard</h1>
-    <a href="{{ url_for('stock_in') }}">Add Stock</a> |
-    <a href="{{ url_for('stock_out') }}">Issue Stock</a> |
-    <a href="{{ url_for('reports') }}">View Reports</a>
 
-    <h2>Stock In</h2>
-    <table border="1">
-        <tr>
-            <th>Source</th>
-            <th>Item Name</th>
-            <th>Batch Number</th>
-            <th>Expiry Date</th>
-            <th>Quantity</th>
-            <th>Received Date</th>
-        </tr>
-        {% for stock in stocks_in %}
-        <tr>
-            <td>{{ stock.source }}</td>
-            <td>{{ stock.item_name }}</td>
-            <td>{{ stock.batch_number }}</td>
-            <td>{{ stock.expiry_date }}</td>
-            <td>{{ stock.quantity }}</td>
-            <td>{{ stock.received_date }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <!-- Navbar for Title -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid justify-content-center">
+            <span class="navbar-brand">Stock Inventory Dashboard</span>
+        </div>
+    </nav>
 
-    <h2>Stock Out</h2>
-    <table border="1">
-        <tr>
-            <th>Department</th>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Issued Date</th>
-        </tr>
-        {% for stock in stocks_out %}
-        <tr>
-            <td>{{ stock.department }}</td>
-            <td>{{ stock.item_name }}</td>
-            <td>{{ stock.quantity }}</td>
-            <td>{{ stock.issued_date }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+        <h1 class="dashboard-title">Welcome to Your Dashboard!</h1>
+        
+        <!-- Dashboard Buttons -->
+        <div class="d-grid gap-4 col-6 mx-auto mt-4">
+            <a href="{{ url_for('stock_in') }}" class="card-button text-decoration-none">
+                <i class="fas fa-plus-circle btn-icon"></i>
+                <h5>Add Stock</h5>
+            </a>
+            <a href="{{ url_for('stock_out') }}" class="card-button text-decoration-none">
+                <i class="fas fa-minus-circle btn-icon"></i>
+                <h5>Issue Stock</h5>
+            </a>
+            <a href="{{ url_for('reports') }}" class="card-button text-decoration-none">
+                <i class="fas fa-chart-line btn-icon"></i>
+                <h5>View Reports</h5>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
